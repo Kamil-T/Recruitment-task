@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react'
+import './App.css'
+import { CompaniesContext } from './contexts/CompaniesContext'
+import Table from './components/Table'
 
 function App() {
+    const [companies, loading, error] = useContext(CompaniesContext)
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        {loading && <p>Loading...</p>}
+        {error && <p>Something went wrong...</p>}
+        {companies && (
+          <Table />
+        )}
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
