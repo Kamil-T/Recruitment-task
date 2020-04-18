@@ -8,11 +8,11 @@ const Company = () => {
   return (
     <>
       {companies.map((company) => (
-        <p>
+        <p key={company.id}>
           <span>{company.id} </span>
           <span>{company.name} </span>
           <span>{company.city} </span>
-          <Incomes id={company.id} />
+          <Incomes incomes={company.incomes} />
         </p>
       ))}
     </>
