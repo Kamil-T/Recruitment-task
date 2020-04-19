@@ -22,7 +22,21 @@ const CompaniesProvider = (props) => {
               `https://recruitment.hal.skygate.io/incomes/${company.id}`
             )
             let jsonInco = await resInco.json()
-            return jsonInco
+            let valuesOfIncomes = await jsonInco.incomes.flatMap((income) => {
+              let numbers = parseFloat(income.value)
+              return [numbers]
+            })
+            let totalIncome = await valuesOfIncomes.reduce((a, b) => a + b, 0)
+            let totalIncomeRound = await totalIncome.toFixed(2)
+            let averageIncome = await (
+              totalIncome / valuesOfIncomes.length
+            ).toFixed(2)
+
+            return {
+              ...jsonInco,
+              totalIncome: parseFloat(totalIncomeRound),
+              averageIncome: parseFloat(averageIncome),
+            }
           })
         )
 
