@@ -1,0 +1,12 @@
+.table {
+  width: 100%;
+}
+
+.table-item {
+  display: grid;
+  grid-template-columns: 5% 30% 20% 15% 15% 15%;
+}
+
+.table-item span {
+  justify-self: start;
+}

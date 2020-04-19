@@ -1,21 +1,27 @@
-import React, { useContext } from 'react'
-import Incomes from './Incomes'
-import { CompaniesContext } from '../contexts/CompaniesContext'
+import React from 'react'
+import '../styles/CompanyStyles.css'
 
-const Company = () => {
-  const [companies] = useContext(CompaniesContext)
-
+const Company = ({ currentCompanies }) => {
   return (
-    <>
-      {companies.map((company) => (
-        <p key={company.id}>
+    <div className='table'>
+      <p className='table-item'>
+        <span>Id</span>
+        <span>Name</span>
+        <span>City</span>
+        <span>Total Income</span>
+        <span>Average Income</span>
+        <span>Last Month Income</span>
+      </p>
+      {currentCompanies.map((company) => (
+        <p key={company.id} className='table-item'>
           <span>{company.id} </span>
           <span>{company.name} </span>
           <span>{company.city} </span>
-          <Incomes incomes={company.incomes} />
+          <span>{company.totalIncome} </span>
+          <span>{company.averageIncome} </span>
         </p>
       ))}
-    </>
+    </div>
   )
 }
 

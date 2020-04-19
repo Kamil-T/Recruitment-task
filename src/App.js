@@ -4,17 +4,14 @@ import { CompaniesContext } from './contexts/CompaniesContext'
 import Table from './components/Table'
 
 function App() {
-    const [companies, loading, error] = useContext(CompaniesContext)
-  
+  const [companies, loading, error] = useContext(CompaniesContext)
 
   return (
     <div className='App'>
       <header className='App-header'>
         {loading && <p>Loading...</p>}
         {error && <p>Something went wrong...</p>}
-        {companies && (
-          <Table />
-        )}
+        {companies && <Table />}
       </header>
     </div>
   )
