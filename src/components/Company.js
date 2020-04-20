@@ -49,6 +49,7 @@ const Company = ({ currentCompanies, requestSort, sortConfig }) => {
           <span>{company.city} </span>
           <span>{company.totalIncome} </span>
           <span>{company.averageIncome} </span>
+          <span>{company.lastMonthIncome}</span>
         </p>
       ))}
     </div>
