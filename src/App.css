@@ -1,6 +1,6 @@
 .App {
   width: 1024px;
-  margin: auto;
+  margin: 25px auto;
   text-align: center;
 }
 
@@ -9,6 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: 14px;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter {
+  width: 30%;
 }

@@ -80,7 +80,7 @@ const Pagination = ({
                   className='page-link'
                   aria-label='Previous'
                   onClick={() => handleMoveLeft()}>
-                  <span aria-hidden='true'> &laquo; </span>
+                  <span aria-hidden='true'> &lsaquo; </span>
                   <span className='sr-only'> Previous </span>
                 </span>
               </ul>
@@ -94,7 +94,7 @@ const Pagination = ({
                   aria-label='Next'
                   onClick={() => handleMoveRight()}>
                   <span className='sr-only'> Next </span>
-                  <span aria-hidden='true'> &raquo; </span>
+                  <span aria-hidden='true'> &rsaquo; </span>
                 </span>
               </ul>
             )

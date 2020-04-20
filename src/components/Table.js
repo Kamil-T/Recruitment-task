@@ -1,30 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import '../App.css'
 import Pagination from './Pagination'
 import Company from './Company'
 import { CompaniesContext } from '../contexts/CompaniesContext'
-import { compare } from '../helpers/compare'
+import useSortableData from '../hooks/useSortableData'
+import Search from './Search'
 
 const Table = () => {
   const [companies] = useContext(CompaniesContext)
-  const byId = companies.sort(compare('id'))
-  //const byName = companies.sort(compare('name'))
-  //const byCity = companies.sort(compare('city'))
-  //const byTotalIncome = companies.sort(compare('totalIncome'))
-  //const byAverageIncome = companies.sort(compare('averageIncome'))
-
+  const { items, requestSort, sortConfig } = useSortableData(companies)
+  const [filteredData, setFilteredData] = useState(items)
   const [currentPage, setCurrentPage] = useState(1)
   const pageLimit = 20
   const offset = (currentPage - 1) * pageLimit
-  const currentCompanies = byId.slice(offset, offset + pageLimit)
+  const currentCompanies = filteredData.slice(offset, offset + pageLimit)
+
+  useEffect(() => {
+    setFilteredData(items)
+  }, [items])
+
   return (
     <>
-      <Pagination
-        totalRecords={companies.length}
-        pageLimit={pageLimit}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
+      <div className='controls'>
+        <Search
+          setFilteredData={setFilteredData}
+          items={items}
+          setCurrentPage={setCurrentPage}
+        />
+        <Pagination
+          totalRecords={filteredData.length}
+          pageLimit={pageLimit}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
+      <Company
+        currentCompanies={currentCompanies}
+        requestSort={requestSort}
+        sortConfig={sortConfig}
       />
-      <Company currentCompanies={currentCompanies} />
     </>
   )
 }

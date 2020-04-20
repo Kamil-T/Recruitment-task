@@ -1,7 +1,7 @@
 .pagination {
-  width: 50%;
+  width: 40%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .pages {
@@ -15,7 +15,11 @@
   margin-left: 3px;
 }
 
-.page-item:hover,
+.page-item:hover {
+  color: blue;
+  cursor: pointer;
+}
+
 .active {
   color: red;
 }

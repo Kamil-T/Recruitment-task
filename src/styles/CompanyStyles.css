@@ -10,3 +10,11 @@
 .table-item span {
   justify-self: start;
 }
+
+.table-item .ascending::after {
+  content: ' \02C4';
+}
+
+.table-item .descending::after {
+  content: ' \02C5';
+}
