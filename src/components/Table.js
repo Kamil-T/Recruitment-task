@@ -5,6 +5,7 @@ import Company from './Company'
 import { CompaniesContext } from '../contexts/CompaniesContext'
 import useSortableData from '../hooks/useSortableData'
 import Search from './Search'
+import CompanyMobile from './CompanyMobile'
 
 const Table = () => {
   const [companies] = useContext(CompaniesContext)
@@ -14,6 +15,7 @@ const Table = () => {
   const pageLimit = 20
   const offset = (currentPage - 1) * pageLimit
   const currentCompanies = filteredData.slice(offset, offset + pageLimit)
+  const width = window.outerWidth
 
   useEffect(() => {
     setFilteredData(items)
@@ -34,11 +36,20 @@ const Table = () => {
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <Company
-        currentCompanies={currentCompanies}
-        requestSort={requestSort}
-        sortConfig={sortConfig}
-      />
+      {width < 800 && (
+        <CompanyMobile
+          currentCompanies={currentCompanies}
+          requestSort={requestSort}
+          sortConfig={sortConfig}
+        />
+      )}
+      {width > 800 && (
+        <Company
+          currentCompanies={currentCompanies}
+          requestSort={requestSort}
+          sortConfig={sortConfig}
+        />
+      )}
     </>
   )
 }

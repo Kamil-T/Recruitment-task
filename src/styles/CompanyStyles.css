@@ -18,3 +18,19 @@
 .table-item .descending::after {
   content: ' \02C5';
 }
+
+@media (max-width: 800px) {
+  .table {
+    width: 98%;
+    margin: auto;
+  }
+
+  .table-item {
+    display: grid;
+    grid-template-columns: 10% 50% 20% 20%;
+  }
+
+  .table-item span {
+    justify-self: start;
+  }
+}
