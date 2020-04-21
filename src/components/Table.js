@@ -8,17 +8,18 @@ import Search from './Search'
 
 const Table = () => {
   const [companies] = useContext(CompaniesContext)
-  const { items, requestSort, sortConfig } = useSortableData(companies)
-  const [filteredData, setFilteredData] = useState(items)
+  const [filteredData, setFilteredData] = useState(companies)
+  const [filteredSorted, setFilteredSorted] = useState(companies)
+  const { items, requestSort, sortConfig } = useSortableData(filteredSorted)
   const [currentPage, setCurrentPage] = useState(1)
   const pageLimit = 25
   const offset = (currentPage - 1) * pageLimit
-  const currentCompanies = filteredData.slice(offset, offset + pageLimit)
+  const currentCompanies = items.slice(offset, offset + pageLimit)
   const [width, setWidth] = useState(window.innerWidth)
   const biggerScreen = width > 800
 
   useEffect(() => {
-    setFilteredData(items)
+    setFilteredSorted(companies)
 
     function handleResize() {
       setWidth(window.innerWidth)
@@ -28,25 +29,25 @@ const Table = () => {
     return (_) => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [items])
+  }, [companies])
 
   return (
     <>
       {biggerScreen === false && (
         <p className='instructions'>
-          Try to rotate a screen to see all table
-          categories
+          Try to rotate a screen to see all table categories. Non-visible
+          categories (city, last month income) included in filter
         </p>
       )}
       <p className='instructions'>Click on category name to sort</p>
       <div className='controls'>
         <Search
-          setFilteredData={setFilteredData}
-          items={items}
+          setFilteredSorted={setFilteredSorted}
+          companies={companies}
           setCurrentPage={setCurrentPage}
         />
         <Pagination
-          totalRecords={filteredData.length}
+          totalRecords={items.length}
           pageLimit={pageLimit}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

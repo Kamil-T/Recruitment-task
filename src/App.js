@@ -9,8 +9,8 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {loading && <p>Loading...</p>}
-        {error && <p>Something went wrong...</p>}
+        {loading && <p className='initial-message'>Loading...</p>}
+        {error && <p className='initial-message'>Something went wrong...</p>}
         {companies && <Table />}
       </header>
     </div>
