@@ -1,7 +1,12 @@
 import React from 'react'
 import '../styles/CompanyStyles.css'
 
-const Company = ({ currentCompanies, requestSort, sortConfig }) => {
+const Company = ({
+  currentCompanies,
+  requestSort,
+  sortConfig,
+  biggerScreen,
+}) => {
   const getClassNamesFor = (name) => {
     if (!sortConfig) {
       return
@@ -21,35 +26,39 @@ const Company = ({ currentCompanies, requestSort, sortConfig }) => {
           onClick={() => requestSort('name')}>
           Name
         </span>
-        <span
-          className={getClassNamesFor('city')}
-          onClick={() => requestSort('city')}>
-          City
-        </span>
+        {biggerScreen && (
+          <span
+            className={getClassNamesFor('city')}
+            onClick={() => requestSort('city')}>
+            City
+          </span>
+        )}
         <span
           className={getClassNamesFor('totalIncome')}
           onClick={() => requestSort('totalIncome')}>
-          Total Income
+          Total Inc
         </span>
         <span
           className={getClassNamesFor('averageIncome')}
           onClick={() => requestSort('averageIncome')}>
-          Average Income
+          Average Inc
         </span>
-        <span
-          className={getClassNamesFor('lastMonthIncome')}
-          onClick={() => requestSort('lastMonthIncome')}>
-          Last Month Income
-        </span>
+        {biggerScreen && (
+          <span
+            className={getClassNamesFor('lastMonthIncome')}
+            onClick={() => requestSort('lastMonthIncome')}>
+            Last Month Inc
+          </span>
+        )}
       </p>
       {currentCompanies.map((company) => (
-        <p key={company.id} className='table-item'>
+        <p key={company.id} className='table-item '>
           <span>{company.id} </span>
           <span>{company.name} </span>
-          <span>{company.city} </span>
+          {biggerScreen && <span>{company.city} </span>}
           <span>{company.totalIncome} </span>
           <span>{company.averageIncome} </span>
-          <span>{company.lastMonthIncome}</span>
+          {biggerScreen && <span>{company.lastMonthIncome}</span>}
         </p>
       ))}
     </div>

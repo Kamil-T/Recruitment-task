@@ -1,6 +1,14 @@
 {
   "name": "recruitment-task",
   "version": "0.1.0",
+  "description": "Table with fetching info from 2 API with sorting when table label clicked and filter input",
+  "author": "Kamil Trzaskoma",
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamil-T/recruitment-task.git"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

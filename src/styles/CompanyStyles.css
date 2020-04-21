@@ -1,13 +1,21 @@
 .table {
-  width: 100%;
+  width: 97%;
+  margin: auto;
+  border: 1px solid grey;
 }
 
 .table-item {
+  margin: 0;
   display: grid;
-  grid-template-columns: 5% 30% 20% 15% 15% 15%;
+  grid-template-columns: 5% 30% 22% 14% 14% 15%;
+}
+.table-item:nth-child(even) {
+  background-color: lightgray;
 }
 
 .table-item span {
+  font-size: 15px;
+  margin: 5px 5px;
   justify-self: start;
 }
 
@@ -19,18 +27,33 @@
   content: ' \02C5';
 }
 
-@media (max-width: 800px) {
-  .table {
-    width: 98%;
-    margin: auto;
+@media (max-width: 925px) {
+  .table-item span {
+    font-size: 13px;
   }
+}
 
+@media (max-width: 800px) {
   .table-item {
     display: grid;
-    grid-template-columns: 10% 50% 20% 20%;
+    grid-template-columns: 8% 52% 19% 21%;
   }
+}
 
+@media (max-width: 550px) {
   .table-item span {
-    justify-self: start;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .table-item span {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .table-item span {
+    font-size: 10px;
   }
 }

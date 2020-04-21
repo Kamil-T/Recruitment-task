@@ -5,20 +5,29 @@ import Company from './Company'
 import { CompaniesContext } from '../contexts/CompaniesContext'
 import useSortableData from '../hooks/useSortableData'
 import Search from './Search'
-import CompanyMobile from './CompanyMobile'
 
 const Table = () => {
   const [companies] = useContext(CompaniesContext)
   const { items, requestSort, sortConfig } = useSortableData(companies)
   const [filteredData, setFilteredData] = useState(items)
   const [currentPage, setCurrentPage] = useState(1)
-  const pageLimit = 20
+  const pageLimit = 25
   const offset = (currentPage - 1) * pageLimit
   const currentCompanies = filteredData.slice(offset, offset + pageLimit)
-  const width = window.outerWidth
+  const [width, setWidth] = useState(window.innerWidth)
+  const biggerScreen = width > 800
 
   useEffect(() => {
     setFilteredData(items)
+
+    function handleResize() {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+
+    return (_) => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [items])
 
   return (
@@ -36,20 +45,12 @@ const Table = () => {
           setCurrentPage={setCurrentPage}
         />
       </div>
-      {width < 800 && (
-        <CompanyMobile
-          currentCompanies={currentCompanies}
-          requestSort={requestSort}
-          sortConfig={sortConfig}
-        />
-      )}
-      {width > 800 && (
-        <Company
-          currentCompanies={currentCompanies}
-          requestSort={requestSort}
-          sortConfig={sortConfig}
-        />
-      )}
+      <Company
+        currentCompanies={currentCompanies}
+        requestSort={requestSort}
+        sortConfig={sortConfig}
+        biggerScreen={biggerScreen}
+      />
     </>
   )
 }
