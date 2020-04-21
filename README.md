@@ -21,9 +21,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Demo
 
-```sh
-[Webpage](https://kamil-t.github.io/recruitment-task/)
-```
+[@Webpage](https://kamil-t.github.io/recruitment-task/)
 
 ## Install
 
