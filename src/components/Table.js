@@ -8,7 +8,6 @@ import Search from './Search'
 
 const Table = () => {
   const [companies] = useContext(CompaniesContext)
-  const [filteredData, setFilteredData] = useState(companies)
   const [filteredSorted, setFilteredSorted] = useState(companies)
   const { items, requestSort, sortConfig } = useSortableData(filteredSorted)
   const [currentPage, setCurrentPage] = useState(1)
