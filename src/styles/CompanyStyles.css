@@ -4,6 +4,10 @@
   border: 1px solid grey;
 }
 
+.categories span {
+  cursor: pointer;
+}
+
 .table-item {
   margin: 0;
   display: grid;

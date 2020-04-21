@@ -21,5 +21,23 @@
 }
 
 .active {
-  color: red;
+  color: darkred;
+}
+
+@media (max-width: 800px) {
+  .pagination {
+    width: 65%;
+  }
+}
+
+@media (max-width: 525px) {
+  .pagination {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .pages {
+    font-size: 10px;
+  }
 }

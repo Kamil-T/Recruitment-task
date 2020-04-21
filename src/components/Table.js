@@ -32,6 +32,13 @@ const Table = () => {
 
   return (
     <>
+      {biggerScreen === false && (
+        <p className='instructions'>
+          Try to rotate a screen to see all table
+          categories
+        </p>
+      )}
+      <p className='instructions'>Click on category name to sort</p>
       <div className='controls'>
         <Search
           setFilteredData={setFilteredData}

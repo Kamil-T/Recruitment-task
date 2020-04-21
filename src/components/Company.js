@@ -15,7 +15,7 @@ const Company = ({
   }
   return (
     <div className='table'>
-      <p className='table-item'>
+      <p className='table-item categories'>
         <span
           className={getClassNamesFor('id')}
           onClick={() => requestSort('id')}>

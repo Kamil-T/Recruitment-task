@@ -7,9 +7,6 @@
   <a href="https://github.com/Kamil-T/recruitment-task/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/Kamil-T/recruitment-task" />
-  </a>
 </p>
 
 > Table with fetching info from 2 API with sorting and filter input
@@ -20,6 +17,12 @@
 Before you begin, ensure you have met the following requirements:
 - You have installed Node.js, newest versions include npm
 - You have installed yarn or npm
+```
+
+## Demo
+
+```sh
+[Webpage](https://kamil-t.github.io/recruitment-task/)
 ```
 
 ## Install
@@ -52,7 +55,7 @@ yarn test
 Sorting activate when clicked on category name, first click ascending, second descending
 Input filter by all categories
 On smaller screens less categories are visible. Try rotate a screen or turn on desktop mode/ visit on PC to show all of them.
-sh
+```
 
 ## Author
 
@@ -63,4 +66,7 @@ sh
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+```
+
 ```
