@@ -11,6 +11,7 @@ function App() {
       <header className='App-header'>
         {loading && <p className='initial-message'>Loading...</p>}
         {error && <p className='initial-message'>Something went wrong...</p>}
+        {error && console.log(error)}
         {companies && <Table />}
       </header>
     </div>
